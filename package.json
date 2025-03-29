@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "server": "nodemon backend/index.js",
-    "install": "npm install"
+    "install": "npm install",
+    "build": "nodemon --exec npm run server"
   },
   "keywords": [],
   "author": "",
