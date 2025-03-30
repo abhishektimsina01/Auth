@@ -61,7 +61,7 @@ const passwordCheck = async(req,res,next) =>{
             throw err
         }
         const user = await Signup.findOne({name})
-        console.log(user)
+        // console.log(user)
 
         if(!user){
             const err = new Error("user is not registered")
@@ -74,7 +74,8 @@ const passwordCheck = async(req,res,next) =>{
             err.status = 400
             throw err
         }
-        req.user = {name, password}
+        req.user = user
+        console.log(req.user)
         next()
         
     }
@@ -87,6 +88,11 @@ const LogInUser = async(req,res,next) => {
     try{
         const token = AuthenticationToken(req.user._id)
         setCookie(res,"token", token)
+        await Signup.updateOne({_id : req.user._id},
+            {
+                lastLoginTime : Date.now()
+            }
+        )
         res.json({
             message : "You are logged in"
         })
