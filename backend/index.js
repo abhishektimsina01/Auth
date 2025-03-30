@@ -7,6 +7,7 @@ import {ConnectToDatabase} from "./db/connect.db.js"
 import cookieParser from "cookie-parser"
 dotenv.config()
 
+const port = process.env.port || 8080
 const app = express()
 // connecting to the database
 ConnectToDatabase()
@@ -25,7 +26,7 @@ app.use(notFound)
 app.use(errorHandler)
 
 //starting the serverr
-app.listen(process.env.port, (err)=>{
+app.listen(port, (err)=>{
     if(err){
         console.log(err)
     }
