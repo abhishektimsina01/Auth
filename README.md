@@ -35,6 +35,4 @@ This project provides authentication and user management functionality using Nod
 - bcrypt for password hashing
 - JWT for authentication
 
-## License
-This project is licensed under the MIT License.
 
