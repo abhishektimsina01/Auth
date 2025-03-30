@@ -9,7 +9,6 @@
     "dev": "nodemon backend/index.js",
     "build": "react-scripts build",
     "heroku-postbuild": "npm run build",
-    "postinstall": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
